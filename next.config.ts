@@ -4,8 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: "/jonoyanguren-portfolio",
-  assetPrefix: "/jonoyanguren-portfolio",
+  basePath: "",
 };
 
-module.exports = nextConfig;
+export default nextConfig;
