@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
 import { HiArrowDown } from "react-icons/hi";
 import { MdWeb, MdCode } from "react-icons/md";
+import { TypeAnimation } from "react-type-animation";
 
 export default function Home() {
   const fadeInUp = {
@@ -12,65 +13,102 @@ export default function Home() {
     transition: { duration: 0.5 },
   };
 
+  const gradientBg =
+    "bg-gradient-to-r from-violet-600 via-blue-500 to-cyan-400";
+  const glowEffect = "animate-glow";
+
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="h-screen flex flex-col justify-center items-center relative">
+      {/* Hero Section - Ahora con más color y efectos */}
+      <section
+        className={`h-screen flex flex-col justify-center items-center relative overflow-hidden`}
+      >
+        <div className="absolute inset-0 w-full h-full bg-grid-pattern opacity-5"></div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center"
+          className="text-center z-10"
         >
-          <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
+          <h1
+            className={`text-6xl font-bold mb-4 ${gradientBg} bg-clip-text text-transparent ${glowEffect}`}
+          >
             Jon Oyanguren
           </h1>
-          <h2 className="text-2xl mb-6 text-gray-600 dark:text-gray-300">
-            Nómada Digital & Solopreneur
-          </h2>
           <p className="max-w-lg mx-auto text-gray-600 dark:text-gray-400 mb-8">
             Explorando el mundo mientras construyo productos digitales que
             impactan. Combinando la libertad del nomadismo digital con la pasión
             por crear.
           </p>
+
+          <div className="relative mb-8">
+            <div className="terminal-header bg-gray-800 text-white px-4 py-2 rounded-t-lg flex items-center space-x-2">
+              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+            <div className="bg-gray-900 text-green-400 p-4 rounded-b-lg font-mono text-sm">
+              <TypeAnimation
+                sequence={[
+                  '> const mission = "Crear productos digitales impactantes"',
+                  5000,
+                  "> while(exploring.world) {\n    buildAwesomeProducts();\n    createValue();\n}",
+                  7000,
+                ]}
+                wrapper="div"
+                cursor={true}
+                repeat={Infinity}
+                style={{ whiteSpace: "pre-line" }}
+              />
+            </div>
+          </div>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-600 transition-colors"
+            className={`${gradientBg} text-white px-8 py-3 rounded-full hover:opacity-90 transition-all shadow-lg hover:shadow-xl`}
           >
             Conoce mi trabajo
           </motion.button>
         </motion.div>
 
+        {/* Social Icons con efecto hover mejorado */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
           className="absolute bottom-10 flex gap-6"
         >
-          <a
-            href="https://github.com/tuuser"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub className="w-6 h-6 hover:text-blue-500 transition-colors" />
-          </a>
-          <a
-            href="https://twitter.com/tuuser"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaTwitter className="w-6 h-6 hover:text-blue-500 transition-colors" />
-          </a>
-          <a
-            href="https://linkedin.com/in/tuuser"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedin className="w-6 h-6 hover:text-blue-500 transition-colors" />
-          </a>
+          {[
+            {
+              icon: FaGithub,
+              href: "https://github.com/tuuser",
+              color: "hover:text-purple-500",
+            },
+            {
+              icon: FaTwitter,
+              href: "https://twitter.com/tuuser",
+              color: "hover:text-blue-400",
+            },
+            {
+              icon: FaLinkedin,
+              href: "https://linkedin.com/in/tuuser",
+              color: "hover:text-blue-600",
+            },
+          ].map((social, index) => (
+            <motion.a
+              key={index}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.2, rotate: 5 }}
+              className={`transform transition-all ${social.color}`}
+            >
+              <social.icon className="w-6 h-6" />
+            </motion.a>
+          ))}
         </motion.div>
 
+        {/* Scroll indicator con más estilo */}
         <motion.div
           animate={{
             y: [0, 10, 0],
@@ -80,9 +118,9 @@ export default function Home() {
             repeat: Infinity,
             repeatType: "reverse",
           }}
-          className="absolute bottom-5"
+          className={`absolute bottom-5 ${gradientBg} p-2 rounded-full`}
         >
-          <HiArrowDown className="w-6 h-6" />
+          <HiArrowDown className="w-6 h-6 text-white" />
         </motion.div>
       </section>
 
