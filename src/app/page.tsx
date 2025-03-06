@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "@/public/vercel.svg";
+import logo from "../../assets/vercel.svg";
 
 export default function Home() {
   return (
