@@ -8,6 +8,7 @@ import {
   FaReact,
   FaNodeJs,
 } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
   return (
@@ -80,7 +81,7 @@ export default function Hero() {
   );
 }
 
-function TechBadge({ name, icon }: { name: string; icon: J.Element }) {
+function TechBadge({ name, icon }: { name: string; icon: React.ReactNode }) {
   return (
     <div className="flex items-center gap-2 px-4 py-2 bg-[#161B22] rounded-full text-sm text-white">
       <span className="text-lg">{icon}</span>
@@ -90,6 +91,9 @@ function TechBadge({ name, icon }: { name: string; icon: J.Element }) {
 }
 
 function BackgroundLines() {
+  const [lines, setLines] = useState<
+    Array<{ x: number; y: number; width: number; color: string }>
+  >([]);
   const colors = [
     "#f43f5e", // rose-500
     "#3b82f6", // blue-500
@@ -105,30 +109,34 @@ function BackgroundLines() {
     "#eab308", // yellow-500
   ];
 
-  const generateLines = () => {
-    const lines = [];
-    const ySpacing = 25;
-    const xVariation = 50;
-    const groupSize = 4;
-    const groupSpacing = 60;
+  useEffect(() => {
+    const generateLines = () => {
+      const lines = [];
+      const ySpacing = 25;
+      const xVariation = 50;
+      const groupSize = 4;
+      const groupSpacing = 60;
 
-    for (let i = 0; i < 30; i++) {
-      const groupIndex = Math.floor(i / groupSize);
-      const y = i * ySpacing + groupIndex * groupSpacing;
-      const x = Math.random() * xVariation;
-      const width = 80 + Math.random() * 120;
-      const color = colors[Math.floor(Math.random() * colors.length)];
+      for (let i = 0; i < 30; i++) {
+        const groupIndex = Math.floor(i / groupSize);
+        const y = i * ySpacing + groupIndex * groupSpacing;
+        const x = Math.random() * xVariation;
+        const width = 80 + Math.random() * 120;
+        const color = colors[Math.floor(Math.random() * colors.length)];
 
-      lines.push({ x, y, width, color });
-    }
-    return lines;
-  };
+        lines.push({ x, y, width, color });
+      }
+      return lines;
+    };
 
-  const leftLines = generateLines();
-  const rightLines = generateLines().map((line) => ({
-    ...line,
-    x: window.innerWidth - line.x - line.width,
-  }));
+    const leftLines = generateLines();
+    const rightLines = generateLines().map((line) => ({
+      ...line,
+      x: window.innerWidth - line.x - line.width,
+    }));
+
+    setLines([...leftLines, ...rightLines]);
+  }, [colors]);
 
   return (
     <div className="absolute inset-0 w-full h-full z-0">
@@ -136,20 +144,9 @@ function BackgroundLines() {
         className="absolute inset-0 w-full h-full opacity-20"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {leftLines.map((line, idx) => (
+        {lines.map((line, idx) => (
           <rect
-            key={`left-${idx}`}
-            x={line.x}
-            y={line.y}
-            width={line.width}
-            height="6"
-            rx="3"
-            fill={line.color}
-          />
-        ))}
-        {rightLines.map((line, idx) => (
-          <rect
-            key={`right-${idx}`}
+            key={idx}
             x={line.x}
             y={line.y}
             width={line.width}
