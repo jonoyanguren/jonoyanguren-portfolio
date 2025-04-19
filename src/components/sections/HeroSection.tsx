@@ -94,22 +94,23 @@ function BackgroundLines() {
   const [lines, setLines] = useState<
     Array<{ x: number; y: number; width: number; color: string }>
   >([]);
-  const colors = [
-    "#f43f5e", // rose-500
-    "#3b82f6", // blue-500
-    "#10b981", // emerald-500
-    "#f59e0b", // amber-500
-    "#6366f1", // indigo-500
-    "#8b5cf6", // violet-500
-    "#ec4899", // pink-500
-    "#06b6d4", // cyan-500
-    "#22c55e", // green-500
-    "#f97316", // orange-500
-    "#a855f7", // purple-500
-    "#eab308", // yellow-500
-  ];
 
   useEffect(() => {
+    const colors = [
+      "#f43f5e", // rose-500
+      "#3b82f6", // blue-500
+      "#10b981", // emerald-500
+      "#f59e0b", // amber-500
+      "#6366f1", // indigo-500
+      "#8b5cf6", // violet-500
+      "#ec4899", // pink-500
+      "#06b6d4", // cyan-500
+      "#22c55e", // green-500
+      "#f97316", // orange-500
+      "#a855f7", // purple-500
+      "#eab308", // yellow-500
+    ];
+
     const generateLines = () => {
       const lines = [];
       const ySpacing = 25;
@@ -136,7 +137,7 @@ function BackgroundLines() {
     }));
 
     setLines([...leftLines, ...rightLines]);
-  }, [colors]);
+  }, []);
 
   return (
     <div className="absolute inset-0 w-full h-full z-0">
