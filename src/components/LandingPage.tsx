@@ -9,16 +9,16 @@ export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <section id="inicio">
+      <section id="home">
         <HeroSection />
       </section>
-      <section id="proyectos">
-        <ProjectsSection />
-      </section>
-      <section id="blog">
+      <section id="about">
         <AboutSection />
       </section>
-      <section id="contacto">
+      <section id="projects">
+        <ProjectsSection />
+      </section>
+      <section id="contact">
         <ContactSection />
       </section>
     </div>

@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Header() {
   return (
-    <header className="top-0 left-0 right-0 z-50 bg-[#0D1117] backdrop-blur-sm border-b border-gray-800">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117] backdrop-blur-sm border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -16,25 +16,25 @@ export default function Header() {
           {/* Navigation */}
           <nav className="hidden md:flex space-x-8">
             <Link
-              href="#inicio"
+              href="#home"
               className="text-zinc-300 hover:text-sky-300 transition-colors"
             >
               Inicio
             </Link>
             <Link
-              href="#proyectos"
+              href="#about"
+              className="text-zinc-300 hover:text-sky-300 transition-colors"
+            >
+              Sobre mí
+            </Link>
+            <Link
+              href="#projects"
               className="text-zinc-300 hover:text-sky-300 transition-colors"
             >
               Proyectos
             </Link>
             <Link
-              href="#blog"
-              className="text-zinc-300 hover:text-sky-300 transition-colors"
-            >
-              Blog
-            </Link>
-            <Link
-              href="#contacto"
+              href="#contact"
               className="text-zinc-300 hover:text-sky-300 transition-colors"
             >
               Contacto
