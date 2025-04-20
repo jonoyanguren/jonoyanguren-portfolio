@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import SubTitle from "../ui/SubTitle";
 
 export default function AboutSection() {
   const fadeInUp = {
@@ -9,29 +10,37 @@ export default function AboutSection() {
     transition: { duration: 0.5 },
   };
 
+  const stats = [
+    { title: "Países Visitados", value: "15+", color: "text-purple-400" },
+    { title: "Proyectos Completados", value: "30+", color: "text-amber-300" },
+    { title: "Años de Experiencia", value: "5+", color: "text-lime-400" },
+    { title: "Clientes Satisfechos", value: "20+", color: "text-red-400" },
+  ];
+
   return (
-    <section className="py-[15%] bg-[#0D1117] relative overflow-hidden">
+    <section className="p-28 bg-[#0D1117] relative overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent_0%,#0D1117_20%,#0D1117_80%,transparent_100%)]" />
 
       <motion.div
-        className="max-w-4xl mx-auto px-4 relative z-10"
+        className="max-w-5xl mx-auto px-4 relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-4xl font-bold mb-8 text-center text-white">
-          Sobre Mí
-        </h2>
+        <SubTitle
+          title="Sobre Mí"
+          subtitle="Curioso, creativo y amante de la tecnología y la libertad"
+        />
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <p className="text-gray-400">
+          <div className="space-y-6 text-xl">
+            <p className="text-gray-300">
               Soy un desarrollador y emprendedor digital que ha elegido el
               camino del nomadismo digital. Mi pasión es crear productos
               digitales que aporten valor mientras exploro diferentes culturas y
               lugares del mundo.
             </p>
-            <p className="text-gray-400">
+            <p className="text-gray-300">
               Como solopreneur, me especializo en desarrollar soluciones web
               innovadoras y escalables, combinando mi experiencia técnica con
               una visión empresarial única moldeada por mis experiencias
@@ -53,21 +62,18 @@ export default function AboutSection() {
             whileInView="show"
             viewport={{ once: true }}
           >
-            {[
-              { title: "Países Visitados", value: "15+" },
-              { title: "Proyectos Completados", value: "30+" },
-              { title: "Años de Experiencia", value: "5+" },
-              { title: "Clientes Satisfechos", value: "20+" },
-            ].map((stat, index) => (
+            {stats.map((stat, index) => (
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                className="bg-[#161B22] p-6 rounded-lg text-center border border-gray-800"
+                className="bg-[#161B22] p-6 rounded-lg text-center border space-y-5 border-gray-800"
               >
-                <h3 className="text-3xl font-bold text-blue-400">
+                <h3 className={`text-4xl font-bold ${stat.color}`}>
                   {stat.value}
                 </h3>
-                <p className="text-gray-400 text-sm mt-2">{stat.title}</p>
+                <p className="text-gray-100 font-bold text-sm mt-2">
+                  {stat.title}
+                </p>
               </motion.div>
             ))}
           </motion.div>

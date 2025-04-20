@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Header() {
   return (
@@ -10,34 +10,32 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-xl font-bold bg-gradient-to-r from-violet-600 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
-              JO
-            </span>
+            <span className="text-xl font-bold text-white">JO</span>
           </Link>
 
           {/* Navigation */}
           <nav className="hidden md:flex space-x-8">
             <Link
-              href="/"
-              className="text-gray-400 hover:text-blue-400 transition-colors"
+              href="#inicio"
+              className="text-zinc-300 hover:text-sky-300 transition-colors"
             >
               Inicio
             </Link>
             <Link
-              href="/proyectos"
-              className="text-gray-400 hover:text-blue-400 transition-colors"
+              href="#proyectos"
+              className="text-zinc-300 hover:text-sky-300 transition-colors"
             >
               Proyectos
             </Link>
             <Link
-              href="/blog"
-              className="text-gray-400 hover:text-blue-400 transition-colors"
+              href="#blog"
+              className="text-zinc-300 hover:text-sky-300 transition-colors"
             >
               Blog
             </Link>
             <Link
-              href="/contacto"
-              className="text-gray-400 hover:text-blue-400 transition-colors"
+              href="#contacto"
+              className="text-zinc-300 hover:text-sky-300 transition-colors"
             >
               Contacto
             </Link>
@@ -60,14 +58,6 @@ export default function Header() {
               className="text-gray-400 hover:text-blue-400 transition-colors"
             >
               <FaLinkedin size={20} />
-            </a>
-            <a
-              href="https://twitter.com/jonoyanguren"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-blue-400 transition-colors"
-            >
-              <FaTwitter size={20} />
             </a>
           </div>
         </div>

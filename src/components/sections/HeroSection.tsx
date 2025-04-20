@@ -9,37 +9,44 @@ import {
   FaNodeJs,
 } from "react-icons/fa";
 import { useEffect, useState } from "react";
-
+import Image from "next/image";
 export default function Hero() {
   return (
-    <section className="py-[15%] bg-[#0D1117] flex flex-col items-center justify-center px-4 text-white relative overflow-hidden">
+    <section className="py-[10%] bg-[#0D1117] flex flex-col items-center justify-center px-4 text-white relative overflow-hidden">
       {/* SVG decorativo*/}
       <BackgroundLines />
 
       {/* Avatar */}
-      <div className="z-10 mb-6">
-        <div className="w-24 h-24 rounded-full border-4 border-red-400 flex items-center justify-center bg-transparent">
-          <span className="text-green-400 text-2xl">&lt;/&gt;</span>
-        </div>
+      <div className="z-10 w-36 h-36 mb-6">
+        <Image
+          src="/avatar.png"
+          alt="Avatar"
+          width={200}
+          height={200}
+          className="rounded-full z-10 object-cover"
+        />
       </div>
 
       {/* Texto principal */}
       <div className="z-10 text-center">
-        <p className="text-gray-400">
+        <p className="text-gray-100 font-mono">
           ¡Hola Mundo! Mi nombre es{" "}
-          <span className="text-blue-400 font-medium">Jon Oyanguren</span> y soy
+          <span className="text-sky-300 font-medium text-xl">
+            Jon Oyanguren
+          </span>{" "}
+          y soy
         </p>
-        <h1 className="text-4xl md:text-5xl font-extrabold mt-2">
+        <h1 className="text-4xl md:text-5xl font-extrabold mt-2 text-gray-100">
           Desarrollador Fullstack
         </h1>
-        <p className="mt-4 max-w-xl mx-auto text-gray-400 text-sm md:text-base">
+        <p className="mt-4 max-w-xl mx-auto text-gray-100 md:text-base">
           Explorando el mundo mientras construyo productos digitales que
           impactan. Combinando la libertad del nomadismo digital con la pasión
           por crear.
         </p>
 
         {/* Tecnologías */}
-        <div className="flex flex-wrap justify-center gap-4 mt-8">
+        <div className="flex flex-wrap justify-center gap-4 mt-12">
           <TechBadge name="GitHub" icon={<FaGithub />} />
           <TechBadge name="HTML" icon={<FaHtml5 className="text-red-500" />} />
           <TechBadge

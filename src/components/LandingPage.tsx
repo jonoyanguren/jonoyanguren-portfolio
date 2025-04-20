@@ -9,10 +9,18 @@ export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <ContactSection />
+      <section id="inicio">
+        <HeroSection />
+      </section>
+      <section id="proyectos">
+        <ProjectsSection />
+      </section>
+      <section id="blog">
+        <AboutSection />
+      </section>
+      <section id="contacto">
+        <ContactSection />
+      </section>
     </div>
   );
 }
