@@ -10,10 +10,12 @@ import {
 } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+
 export default function Hero() {
+  const t = useTranslations("hero");
   return (
     <section className="py-[10%] bg-[#0D1117] flex flex-col items-center justify-center px-4 text-white relative overflow-hidden">
-      {/* SVG decorativo*/}
       <BackgroundLines />
 
       {/* Avatar */}
@@ -30,19 +32,15 @@ export default function Hero() {
       {/* Texto principal */}
       <div className="z-10 text-center">
         <p className="text-gray-100 font-mono">
-          ¡Hola Mundo! Mi nombre es{" "}
-          <span className="text-sky-300 font-medium text-xl">
-            Jon Oyanguren
-          </span>{" "}
-          y soy
+          {t("greeting")}{" "}
+          <span className="text-sky-300 font-medium text-xl">{t("name")}</span>{" "}
+          {t("and")}
         </p>
         <h1 className="text-4xl md:text-5xl font-extrabold mt-2 text-gray-100">
-          Desarrollador Fullstack
+          {t("role")}
         </h1>
         <p className="mt-4 max-w-xl mx-auto text-gray-100 md:text-base">
-          Explorando el mundo mientras construyo productos digitales que
-          impactan. Combinando la libertad del nomadismo digital con la pasión
-          por crear.
+          {t("bio")}
         </p>
 
         {/* Tecnologías */}

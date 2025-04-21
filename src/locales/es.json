@@ -1,0 +1,65 @@
+{
+    "header": {
+        "home": "Inicio",
+        "about": "Sobre mí",
+        "projects": "Proyectos",
+        "contact": "Contacto"
+    },
+    "hero": {
+        "title": "Hola, soy Jon Oyanguren",
+        "description": "Desarrollador y emprendedor digital especializado en crear productos digitales impactantes mientras explora el mundo como nómada digital.",
+        "button": "Conoce más",
+        "greeting": "¡Hola Mundo! Mi nombre es",
+        "name": "Jon Oyanguren",
+        "and": "y soy",
+        "role": "Desarrollador Fullstack",
+        "bio": "Explorando el mundo mientras construyo productos digitales que impactan. Combinando la libertad del nomadismo digital con la pasión por crear."
+    },
+    "about": {
+        "title": "Sobre Mí",
+        "subtitle": "Curioso, creativo y amante de la tecnología y la libertad",
+        "description1": "Soy un desarrollador y emprendedor digital que ha elegido el camino del nomadismo digital. Mi pasión es crear productos digitales que aporten valor mientras exploro diferentes culturas y lugares del mundo.",
+        "description2": "Como solopreneur, me especializo en desarrollar soluciones web innovadoras y escalables, combinando mi experiencia técnica con una visión empresarial única moldeada por mis experiencias internacionales.",
+        "stats": {
+            "countries": "Países Visitados",
+            "projects": "Proyectos Completados",
+            "experience": "Años de Experiencia",
+            "clients": "Clientes Satisfechos"
+        }
+    },
+    "projects": {
+        "title": "Proyectos",
+        "subtitle": "Proyectos recientes en los que he trabajado",
+        "timeSpent": "Tiempo invertido",
+        "items": [
+            {
+                "title": "Fast Trip Planner",
+                "url": "https://fasttripplanner.com",
+                "description": "Plataforma web para utiliza IA para ayudarte a organizar tus vacaciones o cualquier viaje y presupuestos.",
+                "image": "/projects/project1.png",
+                "tech": ["React", "TypeScript", "Tailwind", "Python", "FastAPI"],
+                "timeSpent": "1 mes"
+            },
+            {
+                "title": "Citrus Designer",
+                "url": "https://citrusdesigner.com",
+                "description": "Plataforma web para contratar diseño por suscripción. Con panel de control para el cliente y el diseñador.",
+                "image": "/projects/project2.png",
+                "tech": ["Next.js", "TypeScript", "Tailwind", "Prisma", "Vercel"],
+                "timeSpent": "1 mes"
+            },
+            {
+                "title": "Daily Content Limit",
+                "url": "https://chromewebstore.google.com/detail/daily-content-limit/eppeeikbpmimcgdhhboibamfbppjammb?utm_source=ext_app_menu",
+                "image": "/projects/project3.png",
+                "description": "Extensión de Chrome que limita la cantidad diaria de contenido corto que ves en Youtube, Instagram y TikTok.",
+                "tech": ["Javascript", "HTML", "CSS"],
+                "timeSpent": "Dos mañanas"
+            }
+          ]
+    },
+    "contact": {
+        "title": "Contacto",
+        "subtitle": "Si quieres saber más sobre alguno de mis proyectos, puedes contactarme."
+    }
+}

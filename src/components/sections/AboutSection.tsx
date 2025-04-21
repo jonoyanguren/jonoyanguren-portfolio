@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import SubTitle from "../ui/SubTitle";
-
+import { useTranslations } from "next-intl";
 export default function AboutSection() {
+  const t = useTranslations("about");
+
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -11,10 +13,10 @@ export default function AboutSection() {
   };
 
   const stats = [
-    { title: "Países Visitados", value: "15+", color: "text-purple-400" },
-    { title: "Proyectos Completados", value: "30+", color: "text-amber-300" },
-    { title: "Años de Experiencia", value: "5+", color: "text-lime-400" },
-    { title: "Clientes Satisfechos", value: "20+", color: "text-red-400" },
+    { title: t("stats.countries"), value: "15+", color: "text-purple-400" },
+    { title: t("stats.projects"), value: "30+", color: "text-amber-300" },
+    { title: t("stats.experience"), value: "5+", color: "text-lime-400" },
+    { title: t("stats.clients"), value: "20+", color: "text-red-400" },
   ];
 
   return (
@@ -28,24 +30,11 @@ export default function AboutSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <SubTitle
-          title="Sobre Mí"
-          subtitle="Curioso, creativo y amante de la tecnología y la libertad"
-        />
+        <SubTitle title={t("title")} subtitle={t("subtitle")} />
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 text-xl">
-            <p className="text-gray-300">
-              Soy un desarrollador y emprendedor digital que ha elegido el
-              camino del nomadismo digital. Mi pasión es crear productos
-              digitales que aporten valor mientras exploro diferentes culturas y
-              lugares del mundo.
-            </p>
-            <p className="text-gray-300">
-              Como solopreneur, me especializo en desarrollar soluciones web
-              innovadoras y escalables, combinando mi experiencia técnica con
-              una visión empresarial única moldeada por mis experiencias
-              internacionales.
-            </p>
+            <p className="text-gray-300">{t("description1")}</p>
+            <p className="text-gray-300">{t("description2")}</p>
           </div>
           <motion.div
             className="grid grid-cols-2 gap-4"

@@ -1,0 +1,65 @@
+{
+    "header": {
+        "home": "Home",
+        "about": "About",
+        "projects": "Projects",
+        "contact": "Contact"
+    },
+    "hero": {
+        "title": "Hello, I'm Jon Oyanguren",
+        "description": "Digital developer and entrepreneur specialized in creating impactful digital products while exploring the world as a digital nomad.",
+        "button": "Learn More",
+        "greeting": "Hello World! My name is",
+        "name": "Jon Oyanguren",
+        "and": "and I am",
+        "role": "Fullstack Developer",
+        "bio": "Exploring the world while building digital products that make an impact. Combining the freedom of digital nomadism with the passion for creating."
+    },
+    "about": {
+        "title": "About Me",
+        "subtitle": "Curious, creative and lover of technology and freedom",
+        "description1": "I am a digital developer and entrepreneur who has chosen the path of digital nomadism. My passion is to create digital products that add value while exploring different cultures and places in the world.",
+        "description2": "As a solopreneur, I specialize in developing innovative and scalable web solutions, combining my technical expertise with a unique entrepreneurial vision shaped by my international experiences.",
+        "stats": {
+            "countries": "Countries Visited",
+            "projects": "Completed Projects",
+            "experience": "Years of Experience",
+            "clients": "Satisfied Clients"
+        }
+    },
+    "projects": {
+        "title": "Projects",
+        "subtitle": "Recent projects I've worked on",
+        "timeSpent": "Time spent",
+        "items": [
+            {
+                "title": "Fast Trip Planner",
+                "url": "https://fasttripplanner.com",
+                "description": "Web platform that uses AI to help you organize your vacations or any trip and budgets.",
+                "image": "/projects/project1.png",
+                "tech": ["React", "TypeScript", "Tailwind", "Python", "FastAPI"],
+                "timeSpent": "1 month"
+            },
+            {
+                "title": "Citrus Designer",
+                "url": "https://citrusdesigner.com",
+                "description": "Web platform to hire design UX and UI by subscription. With dashboard for both client and designer.",
+                "image": "/projects/project2.png",
+                "tech": ["Next.js", "TypeScript", "Tailwind", "Prisma", "Vercel"],
+                "timeSpent": "1 month"
+            },
+            {
+                "title": "Daily Content Limit",
+                "url": "https://chromewebstore.google.com/detail/daily-content-limit/eppeeikbpmimcgdhhboibamfbppjammb?utm_source=ext_app_menu",
+                "image": "/projects/project3.png",
+                "description": "Chrome extension that limits the daily amount of short content you watch on YouTube, Instagram and TikTok.",
+                "tech": ["Javascript", "HTML", "CSS"],
+                "timeSpent": "Two mornings"
+            }
+        ]
+    },
+    "contact": {
+        "title": "Contact",
+        "subtitle": "If you want to know more about any of my projects, you can contact me."
+    }
+}

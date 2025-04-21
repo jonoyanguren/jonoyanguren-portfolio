@@ -10,7 +10,7 @@ import {
   SiPrisma,
   SiVercel,
 } from "react-icons/si";
-
+import { useTranslations } from "next-intl";
 interface ProjectCardProps {
   title: string;
   description: string;
@@ -49,6 +49,7 @@ export default function ProjectCard({
   timeSpent,
   url,
 }: ProjectCardProps) {
+  const t = useTranslations("projects");
   return (
     <motion.div
       variants={fadeInUp}
@@ -75,7 +76,9 @@ export default function ProjectCard({
         </a>
         <p className="text-gray-100 mb-4 mt-2">{description}</p>
         {timeSpent && (
-          <p className="text-gray-100 mb-4">Tiempo invertido: {timeSpent}</p>
+          <p className="text-gray-100 mb-4">
+            {t("timeSpent")}: {timeSpent}
+          </p>
         )}
         <div className="flex flex-wrap gap-2 mt-10">
           {tech.map((tech, techIndex) => (

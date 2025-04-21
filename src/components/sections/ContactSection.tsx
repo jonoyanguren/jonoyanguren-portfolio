@@ -5,6 +5,7 @@ import SubTitle from "../ui/SubTitle";
 import { MdArrowOutward, MdOutlineMailOutline } from "react-icons/md";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 const contactInfo = [
   {
@@ -96,6 +97,7 @@ function BackgroundLines() {
 }
 
 export default function ContactSection() {
+  const t = useTranslations("contact");
   return (
     <section className="p-28 bg-[#0D1117] relative overflow-hidden">
       <BackgroundLines />
@@ -108,10 +110,7 @@ export default function ContactSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <SubTitle
-          title="Contacto"
-          subtitle="¿Te gusta mi trabajo? Contáctame y hablemos"
-        />
+        <SubTitle title={t("title")} subtitle={t("subtitle")} />
         {contactInfo.map((info) => (
           <div
             onClick={() => window.open(info.link, "_blank")}
