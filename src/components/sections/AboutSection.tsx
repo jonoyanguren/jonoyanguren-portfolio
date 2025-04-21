@@ -2,9 +2,14 @@
 
 import { motion } from "framer-motion";
 import SubTitle from "../ui/SubTitle";
-import { useTranslations } from "next-intl";
+import en from "@/locales/en.json";
+import es from "@/locales/es.json";
+import { usePathname } from "next/navigation";
+
 export default function AboutSection() {
-  const t = useTranslations("about");
+  const pathname = usePathname();
+  const isSpanish = pathname.startsWith("/es");
+  const t = isSpanish ? es : en;
 
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
@@ -13,10 +18,10 @@ export default function AboutSection() {
   };
 
   const stats = [
-    { title: t("stats.countries"), value: "15+", color: "text-purple-400" },
-    { title: t("stats.projects"), value: "30+", color: "text-amber-300" },
-    { title: t("stats.experience"), value: "5+", color: "text-lime-400" },
-    { title: t("stats.clients"), value: "20+", color: "text-red-400" },
+    { title: t.about.stats.countries, value: "15+", color: "text-purple-400" },
+    { title: t.about.stats.projects, value: "30+", color: "text-amber-300" },
+    { title: t.about.stats.experience, value: "5+", color: "text-lime-400" },
+    { title: t.about.stats.clients, value: "20+", color: "text-red-400" },
   ];
 
   return (
@@ -30,11 +35,11 @@ export default function AboutSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <SubTitle title={t("title")} subtitle={t("subtitle")} />
+        <SubTitle title={t.about.title} subtitle={t.about.subtitle} />
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 text-xl">
-            <p className="text-gray-300">{t("description1")}</p>
-            <p className="text-gray-300">{t("description2")}</p>
+            <p className="text-gray-300">{t.about.description1}</p>
+            <p className="text-gray-300">{t.about.description2}</p>
           </div>
           <motion.div
             className="grid grid-cols-2 gap-4"

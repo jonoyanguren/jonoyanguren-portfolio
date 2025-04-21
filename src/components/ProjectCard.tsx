@@ -10,7 +10,9 @@ import {
   SiPrisma,
   SiVercel,
 } from "react-icons/si";
-import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
+import en from "@/locales/en.json";
+import es from "@/locales/es.json";
 interface ProjectCardProps {
   title: string;
   description: string;
@@ -49,7 +51,9 @@ export default function ProjectCard({
   timeSpent,
   url,
 }: ProjectCardProps) {
-  const t = useTranslations("projects");
+  const pathname = usePathname();
+  const isSpanish = pathname.startsWith("/es");
+  const t = isSpanish ? es : en;
   return (
     <motion.div
       variants={fadeInUp}
@@ -77,7 +81,7 @@ export default function ProjectCard({
         <p className="text-gray-100 mb-4 mt-2">{description}</p>
         {timeSpent && (
           <p className="text-gray-100 mb-4">
-            {t("timeSpent")}: {timeSpent}
+            {t.projects.timeSpent}: {timeSpent}
           </p>
         )}
         <div className="flex flex-wrap gap-2 mt-10">

@@ -3,7 +3,9 @@
 import { motion } from "framer-motion";
 import ProjectCard from "../ProjectCard";
 import SubTitle from "../ui/SubTitle";
-import { useTranslations } from "next-intl";
+import en from "@/locales/en.json";
+import es from "@/locales/es.json";
+import { usePathname } from "next/navigation";
 
 interface Project {
   title: string;
@@ -15,9 +17,10 @@ interface Project {
 }
 
 export default function ProjectsSection() {
-  const t = useTranslations("projects");
-
-  const projects = t.raw("items");
+  const pathname = usePathname();
+  const isSpanish = pathname.startsWith("/es");
+  const t = isSpanish ? es : en;
+  const projects = t.projects.items;
 
   return (
     <section className="p-28 bg-[#0D1117] relative overflow-hidden">
@@ -30,10 +33,7 @@ export default function ProjectsSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <SubTitle
-          title="Proyectos Destacados"
-          subtitle="Proyectos recientes en los que he trabajado"
-        />
+        <SubTitle title={t.projects.title} subtitle={t.projects.subtitle} />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project: Project, index: number) => (
             <ProjectCard key={index} {...project} />

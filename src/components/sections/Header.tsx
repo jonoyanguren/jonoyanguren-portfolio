@@ -2,13 +2,27 @@
 
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 
+const translations = {
+  en: {
+    home: "Home",
+    about: "About",
+    projects: "Projects",
+    contact: "Contact",
+  },
+  es: {
+    home: "Inicio",
+    about: "Sobre mí",
+    projects: "Proyectos",
+    contact: "Contacto",
+  },
+};
+
 export default function Header() {
-  const t = useTranslations("header");
   const pathname = usePathname();
   const isSpanish = pathname.startsWith("/es");
+  const t = translations[isSpanish ? "es" : "en"];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0D1117] backdrop-blur-sm border-b border-gray-800">
@@ -25,25 +39,25 @@ export default function Header() {
               href="#home"
               className="text-zinc-300 hover:text-sky-300 transition-colors"
             >
-              {t("home")}
+              {t.home}
             </Link>
             <Link
               href="#about"
               className="text-zinc-300 hover:text-sky-300 transition-colors"
             >
-              {t("about")}
+              {t.about}
             </Link>
             <Link
               href="#projects"
               className="text-zinc-300 hover:text-sky-300 transition-colors"
             >
-              {t("projects")}
+              {t.projects}
             </Link>
             <Link
               href="#contact"
               className="text-zinc-300 hover:text-sky-300 transition-colors"
             >
-              {t("contact")}
+              {t.contact}
             </Link>
           </nav>
 

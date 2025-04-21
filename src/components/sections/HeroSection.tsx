@@ -10,10 +10,14 @@ import {
 } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import en from "@/locales/en.json";
+import es from "@/locales/es.json";
+import { usePathname } from "next/navigation";
 
 export default function Hero() {
-  const t = useTranslations("hero");
+  const pathname = usePathname();
+  const isSpanish = pathname.startsWith("/es");
+  const t = isSpanish ? es : en;
   return (
     <section className="py-[10%] bg-[#0D1117] flex flex-col items-center justify-center px-4 text-white relative overflow-hidden">
       <BackgroundLines />
@@ -32,15 +36,17 @@ export default function Hero() {
       {/* Texto principal */}
       <div className="z-10 text-center">
         <p className="text-gray-100 font-mono">
-          {t("greeting")}{" "}
-          <span className="text-sky-300 font-medium text-xl">{t("name")}</span>{" "}
-          {t("and")}
+          {t.hero.greeting}{" "}
+          <span className="text-sky-300 font-medium text-xl">
+            {t.hero.name}
+          </span>{" "}
+          {t.hero.and}
         </p>
         <h1 className="text-4xl md:text-5xl font-extrabold mt-2 text-gray-100">
-          {t("role")}
+          {t.hero.role}
         </h1>
         <p className="mt-4 max-w-xl mx-auto text-gray-100 md:text-base">
-          {t("bio")}
+          {t.hero.bio}
         </p>
 
         {/* Tecnologías */}

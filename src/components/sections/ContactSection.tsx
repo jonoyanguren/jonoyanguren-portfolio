@@ -5,7 +5,9 @@ import SubTitle from "../ui/SubTitle";
 import { MdArrowOutward, MdOutlineMailOutline } from "react-icons/md";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import en from "@/locales/en.json";
+import es from "@/locales/es.json";
+import { usePathname } from "next/navigation";
 
 const contactInfo = [
   {
@@ -97,7 +99,9 @@ function BackgroundLines() {
 }
 
 export default function ContactSection() {
-  const t = useTranslations("contact");
+  const pathname = usePathname();
+  const isSpanish = pathname.startsWith("/es");
+  const t = isSpanish ? es : en;
   return (
     <section className="p-28 bg-[#0D1117] relative overflow-hidden">
       <BackgroundLines />
@@ -110,7 +114,7 @@ export default function ContactSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <SubTitle title={t("title")} subtitle={t("subtitle")} />
+        <SubTitle title={t.contact.title} subtitle={t.contact.subtitle} />
         {contactInfo.map((info) => (
           <div
             onClick={() => window.open(info.link, "_blank")}
