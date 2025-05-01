@@ -1,20 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { usePathname } from "next/navigation";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const translations = {
   en: {
     home: "Home",
     about: "About",
     projects: "Projects",
+    blog: "Blog",
     contact: "Contact",
   },
   es: {
     home: "Inicio",
     about: "Sobre mí",
     projects: "Proyectos",
+    blog: "Blog",
     contact: "Contacto",
   },
 };
@@ -52,6 +54,13 @@ export default function Header() {
               className="text-zinc-300 hover:text-sky-300 transition-colors"
             >
               {t.projects}
+            </Link>
+            <Link
+              href="https://medium.com/@jonoyanguren"
+              target="_blank"
+              className="text-zinc-300 hover:text-sky-300 transition-colors"
+            >
+              {t.blog}
             </Link>
             <Link
               href="#contact"

@@ -1,13 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
-import SubTitle from "../ui/SubTitle";
-import { MdArrowOutward, MdOutlineMailOutline } from "react-icons/md";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { useEffect, useState } from "react";
 import en from "@/locales/en.json";
 import es from "@/locales/es.json";
+import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
+
+import { MdArrowOutward, MdOutlineMailOutline } from "react-icons/md";
+import SubTitle from "../ui/SubTitle";
 
 const contactInfo = [
   {
@@ -24,6 +25,11 @@ const contactInfo = [
     icon: <FaGithub />,
     label: "GitHub",
     link: "https://github.com/jonoyanguren",
+  },
+  {
+    icon: <FaMedium />,
+    label: "Medium",
+    link: "https://medium.com/@jonoyanguren",
   },
 ];
 
